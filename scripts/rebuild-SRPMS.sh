@@ -31,19 +31,23 @@ for para in "$*"; do
 	result_dir=finished.$build_time
 	mkdir $result_dir
 
-	for srpm in `ls *.src.rpm`; do
-		echo "building $srpm " >> $build_log.$build_time
+	tdir=$(basename $para)
+	log_file=$tdir\_$build_log.$build_time
 
-		rpmbuild --target i586 --clean --rebuild $srpm >> $build_log.$build_time 2>&1 
+
+	for srpm in `ls *.src.rpm`; do
+		echo "building $srpm " >> $log_file
+
+		rpmbuild --target i586 --clean --rebuild $srpm >> $log_file 2>&1 
 		if [ $? -eq 0 ]; then
 			mv $srpm $result_dir
-			echo "build $srpm successfully!" >> $build_log.$build_time
+			echo "build $srpm successfully!" >> $log_file
 		else
-			echo "build $srpm failed! :(" >> $build_log.$build_time
+			echo "build $srpm failed! :(" >> $log_file
 		fi
 
-		echo '--------------------------------------------------------' >> $build_log.$build_time
-		echo >> $build_log.$build_time
+		echo '--------------------------------------------------------' >> $log_file
+		echo >> $log_file
 
 	done
 
