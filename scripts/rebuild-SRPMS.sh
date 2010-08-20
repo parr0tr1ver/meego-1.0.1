@@ -2,6 +2,9 @@
 
 set -x
 
+# project code name XiZhi/王羲之
+build_log=build_XiZhi
+
 function usage() 
 {
 	echo Usage: $0 SRPM-directory
@@ -29,18 +32,18 @@ for para in "$*"; do
 	mkdir $result_dir
 
 	for srpm in `ls *.src.rpm`; do
-		echo "building $srpm " >> build_log.$build_time
+		echo "building $srpm " >> $build_log.$build_time
 
-		rpmbuild --target i586 --clean --rebuild $srpm >> build_log.$build_time 2>&1 
+		rpmbuild --target i586 --clean --rebuild $srpm >> $build_log.$build_time 2>&1 
 		if [ $? -eq 0 ]; then
 			mv $srpm $result_dir
-			echo "build $srpm successfully!" >> build_log.$build_time
+			echo "build $srpm successfully!" >> $build_log.$build_time
 		else
-			echo "build $srpm failed! :(" >> build_log.$build_time
+			echo "build $srpm failed! :(" >> $build_log.$build_time
 		fi
 
-		echo '--------------------------------------------------------' >> build_log.$build_time
-		echo >> build_log.$build_time
+		echo '--------------------------------------------------------' >> $build_log.$build_time
+		echo >> $build_log.$build_time
 
 	done
 
