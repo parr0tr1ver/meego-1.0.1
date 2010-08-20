@@ -34,6 +34,9 @@ for para in "$*"; do
 		rpmbuild --target i586 --clean --rebuild $srpm >> build_log.$build_time 2>&1 
 		if [ $? -eq 0 ]; then
 			mv $srpm $result_dir
+			echo "build $srpm successfully!" >> build_log.$build_time
+		else
+			echo "build $srpm failed! :(" >> build_log.$build_time
 		fi
 
 		echo '--------------------------------------------------------' >> build_log.$build_time
