@@ -33,8 +33,8 @@ for para in "$*"; do
 
 	tdir=$(basename `pwd`)
 	log_file=$tdir\_$build_log.$build_time
-	echo $log_file
-	read
+	echo log file is $log_file
+	#read
 
 
 	for srpm in `ls *.src.rpm`; do
