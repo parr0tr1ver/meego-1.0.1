@@ -31,8 +31,10 @@ for para in "$*"; do
 	result_dir=finished.$build_time
 	mkdir $result_dir
 
-	tdir=$(basename $para)
+	tdir=$(basename `pwd`)
 	log_file=$tdir\_$build_log.$build_time
+	echo $log_file
+	read
 
 
 	for srpm in `ls *.src.rpm`; do
