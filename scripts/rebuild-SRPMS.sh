@@ -27,7 +27,7 @@ for para in "$*"; do
 	echo $para
 	pushd $para
 
-	build_time=`date +%s`
+	build_time=`date +%Y%m%d%H%M`
 	result_dir=finished.$build_time
 	mkdir $result_dir
 
