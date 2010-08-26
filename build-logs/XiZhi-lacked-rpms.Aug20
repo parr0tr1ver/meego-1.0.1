@@ -1,6 +1,12 @@
 2010年 08月 20日 星期五 14:38:14 CST
 This is build log for lacked packages to complete the full compile
 
+因为在/usr/lib/rpm/macros文件中将
+_unpackaged_files_terminate_build
+定义为0，所以下面所以关于
+installed but unpacked files
+而作的修改更新都撤销。
+
 1  libwpd-0.8.14-4.6.i586.rpm
    libwpd-devel-0.8.14-4.6.i586.rpm 
 2  libwpg-0.1.3-4.2.i586.rpm 
@@ -11,10 +17,13 @@ This is build log for lacked packages to complete the full compile
    xz-libs-4.999.9_git20100201-1.1.i586.rpm
    xz-devel-4.999.9_git20100201-1.1.i586.rpm
 #   xz-lzma-compat-4.999.9_git20100201-1.1.i586.rpm
-6  rpm-4.8.0-4.1.i586.rpm		java不知道为什么依赖rpmlib(PayloadIsXz)
+6  UPGRADE
+	rpm-4.8.0-4.1.i586.rpm		java不知道为什么依赖rpmlib(PayloadIsXz)
    rpm-libs-4.8.0-4.1.i586.rpm
    rpm-devel-4.8.0-4.1.i586.rpm
    rpm-build-4.8.0-4.1.i586.rpm
+	rpmlint-0.92-10.1.noarch.rpm
+	rpmlint-mini-1.1-221.1.i586.rpm 
          
    升级时有如下错误，略过了：
 error: Failed dependencies:
@@ -29,7 +38,8 @@ error: Failed dependencies:
          librpmio-4.6.so is needed by (installed) deltarpm-3.4-11.49.redflag.i586
          librpmio-4.6.so is needed by (installed) rpmlint-mini-1.0-214.61.redflag.i586
          librpmio-4.6.so is needed by (installed) sw-updater-1.3-2.4.redflag.i586
-7  libffi-3.0.9-6.1.i586.rpm
+7  降级
+   libffi-3.0.9-6.1.i586.rpm
 8  升级
    binutils-2.20.51.0.2-17.2.i586.rpm        
    binutils-devel-2.20.51.0.2-17.2.i586.rpm
@@ -39,4 +49,295 @@ error: Failed dependencies:
    cloog
 11 升级至 被cloog依赖
    texinfo-4.13a-9.3.i586.rpm      texinfo-tex-4.13a-9.3.i586.rpm
-12 
+12 meego repo 中　glibc-2.11.90-18.7.src.rpm　依赖最低kernel版本是2.6.35，
+   所以编译的时候修改了spec文件，降低了要求。并加上“intalled but unpacked file"
+   glibc-2.11.90-18.8
+13 依赖
+　 python-pycurl-7.19.0-6.1.i586.rpm　被　python-urlgrabber
+
+   INSTALL
+   python-lxml-2.2.3-4.1.i586.rpm
+	python-pygments-1.1.1-3.1.noarch.rpm
+   python-markdown-2.0.3-2.1.noarch.rpm
+   python-cheetah-2.4.2.1-5.1.i586.rpm
+	python-dtopt-0.1-7.1.noarch.rpm 
+	python-tempita-0.4-3.1.noarch.rpm 
+	python-wsgiproxy-0.1-6.1.noarch.rpm
+   
+	UPGRADE
+	python-2.6.4-4.1.i586.rpm 
+	python-tools-2.6.4-4.1.i586.rpm 
+	python-test-2.6.4-4.1.i586.rpm 
+	python-libs-2.6.4-4.1.i586.rpm 
+	python-devel-2.6.4-4.1.i586.rpm 
+    
+14 升级
+　 libxklavier-5.0-1.1.i586.rpm  libxklavier-devel-5.0-1.1.i586.rpm
+15 安装
+　 fdupes-1.40-43.1.i586.rpm 被qt-4.6.2-2.1.src.rpm　依赖
+16 升级
+　 file-5.04-1.2.i586.rpm  file-devel-5.04-1.2.i586.rpm  file-libs-5.04-1.2.i586.rpm
+   被
+　 python-magic-5.04-1.1.i586.rpm
+17 安装
+　 eggdbus-0.5-4.1.i586.rpm  eggdbus-devel-0.5-4.1.i586.rpm12
+18 修改升级
+　 gobject-introspection-0.6.9-2.1.src.rpm 到　gobject-introspection-0.6.9-2.2.src.rpm
+19 upgrade
+   glib2-2.24.0-2.1.i586.rpm         glib2-devel-2.24.0-2.1.i586.rpm   glib2-static-2.24.0-2.1.i586.rpm
+20 upgrade
+   polkit-0.95_git20090913-2.1.i586.rpm
+   polkit-devel-0.95_git20090913-2.1.i586.rpm
+   polkit-docs-0.95_git20090913-2.1.i586.rpm
+   polkit-desktop-policy-0.95_git20090913-2.1.noarch.rpm
+21 INSTALL
+   gir-repository-0.6.5_git20100201-3.1.i586.rpm
+   gir-repository-devel-0.6.5_git20100201-3.1.i586.rpm
+22 UPGRADE
+   dbus-glib-0.86-2.1.i586.rpm        dbus-glib-devel-0.86-2.1.i586.rpm
+23 UPGRADE
+   automake-1.11.1-4.1.noarch.rpm
+24 UPGRADE
+   clutter-1.2.6-2.2.i586.rpm
+   clutter-devel-1.2.6-2.2.i586.rpm
+	clutter-gtk-0.10.4-1.1.i586.rpm clutter-gtk-devel-0.10.4-1.1.i586.rpm
+   pyclutter-gtk-0.10.0-1.1.i586.rpm  pyclutter-gtk-devel-0.10.0-1.1.i586.rpm
+
+25 INSTALL
+   libtar-1.2.11-15.1.i586.rpm  libtar-devel-1.2.11-15.1.i586.rpm
+26 UPGRADE
+   atk-1.30.0-1.1.i586.rpm        atk-devel-1.30.0-1.1.i586.rpm
+27 INSTALL
+   moblin-icon-theme-2.2.10-4.1.noarch.rpm
+28 INSTALL
+   gtk2-2.20.0-4.1.i586.rpm
+   gtk2-immodules-2.20.0-4.1.i586.rpm
+   gtk2-immodule-xim-2.20.0-4.1.i586.rpm
+   gtk2-devel-2.20.0-4.1.i586.rpm
+   gtk2-devel-docs-2.20.0-4.1.i586.rpm
+29 INSTALL
+   cabextract-1.2-2.1.i586.rpm
+   mathml-fonts-1.0-21.2.noarch.rpm
+   gtkmathview-0.8.0-5.23.i586.rpm        gtkmathview-devel-0.8.0-5.23.i586.rpm 
+30 INSTALL
+   mx-1.0.1-1.1.i586.rpm        mx-devel-1.0.1-1.1.i586.rpm 
+31 UPGRADE
+   telepathy-glib-0.10.0-3.1.i586.rpm  telepathy-glib-devel-0.10.0-3.1.i586.rpm
+32 UPGRADE
+   libsndfile-1.0.21-3.1.i586.rpm  libsndfile-devel-1.0.21-3.1.i586.rpm
+33 UPGRADE
+   gssdp-0.7.1-4.1.i586.rpm  gssdp-devel-0.7.1-4.1.i586.rpm
+34 UPGRADE
+   gupnp-0.13.2-3.1.i586.rpm        gupnp-devel-0.13.2-3.1.i586.rpm
+   gupnp-av-0.5.2-4.1.i586.rpm  gupnp-av-devel-0.5.2-4.1.i586.rpm
+35 INSTALL
+   rest-0.6.4-3.1.i586.rpm rest-devel-0.6.4-3.1.i586.rpm
+36 INSTALL
+   libsocialweb-0.24.9-3.1.i586.rpm libsocialweb-devel-0.24.9-3.1.i586.rpm
+37 INSTALL
+   libgee-0.5.0-1.1.i586.rpm  libgee-devel-0.5.0-1.1.i586.rpm
+   UPGRADE
+   sqlite-3.6.22-1.1.i586.rpm  sqlite-devel-3.6.22-1.1.i586.rpm
+   tracker-0.7.25-9.1.i586.rpm  tracker-devel-0.7.25-9.1.i586.rpm
+38 UPGRADE
+   gmime-2.4.15-1.1.i586.rpm  gmime-devel-2.4.15-1.1.i586.rpm
+39 INSTALL
+   gtkglext-devel-1.2.0-9.1.i586.rpm  gtkglext-libs-1.2.0-9.1.i586.rpm
+40 UPGRADE
+   totem-pl-parser-2.30.0-1.1.i586.rpm  totem-pl-parser-devel-2.30.0-1.1.i586.rpm
+41 INSTALL
+   glew-1.5.2-1.2.i586.rpm  glew-devel-1.5.2-1.2.i586.rpm
+42 UPGRADE
+   qt-4.6.2-2.1.i586.rpm qt-devel-4.6.2-2.1.i586.rpm qt-x11-4.6.2-2.1.i586.rpm 
+   phonon-backend-gstreamer-4.6.2-2.1.i586.rpm qt-sqlite-4.6.2-2.1.i586.rpm 
+	INSTALL
+	qt-mobility-1.0.0beta1-4.1.i586.rpm  qt-mobility-devel-1.0.0beta1-4.1.i586.rpm
+43 INSTALL
+   qjson-0.7.1-2.1.i586.rpm        qjson-devel-0.7.1-2.1.i586.rpm 
+44 INSTALL
+   tinycdb-0.76-5.1.i586.rpm  tinycdb-devel-0.76-5.1.i586.rpm
+45 INSTALL
+   mm-common-0.9.2-1.2.i586.rpm
+46 UPGRADE
+   pangomm-2.26.0-1.1.i586.rpm  pangomm-devel-2.26.0-1.1.i586.rpm
+47 UPGRADE
+   glibmm-2.24.0-1.1.i586.rpm  glibmm-devel-2.24.0-1.1.i586.rpm
+   gtkmm-2.20.0-1.1.i586.rpm  gtkmm-devel-2.20.0-1.1.i586.rpm
+48 UPGRADE
+   perl-5.10.0-61.1.i586.rpm 
+   perl-ExtUtils-MakeMaker-6.36-61.1.i586.rpm
+
+   INSTALL
+   perl-File-BaseDir-0.03-5.1.noarch.rpm  
+   perl-File-Which-0.05-6.1.noarch.rpm
+   perl-File-DesktopEntry-0.04-9.1.noarch.rpm 
+   perl-HTML-Tree-3.23-7.1.noarch.rpm
+   perl-XML-TreeBuilder-3.09-14.1.noarch.rpm
+   perl-IO-stringy-2.110-11.1.noarch.rpm
+   perl-HTML-TableExtract-2.10-5.1.noarch.rpm
+   perl-MailTools-2.04-5.1.noarch.rpm
+   perl-SVG-2.49-4.1.noarch.rpm
+   perl-UNIVERSAL-can-1.15-2.1.noarch.rpm  
+   perl-UNIVERSAL-isa-1.03-2.1.noarch.rpm
+   perl-Test-MockObject-1.09-4.1.noarch.rpm
+   perl-Convert-BinHex-1.119-11.1.noarch.rpm
+   perl-MIME-tools-5.427-5.1.noarch.rpm
+   perl-ExtUtils-MakeMaker-Coverage-0.05-5.1.noarch.rpm
+
+49 UPGRADE
+   ncurses-5.7-7.1.i586.rpm         ncurses-devel-5.7-7.1.i586.rpm   ncurses-static-5.7-7.1.i586.rpm  
+   ncurses-base-5.7-7.1.i586.rpm    ncurses-libs-5.7-7.1.i586.rpm    ncurses-term-5.7-7.1.i586.rpm
+50 INSTALL
+   nano-2.2.4-3.3.i586.rpm
+51 INSTALL
+   trousers-0.3.1-2.1.i586.rpm  trousers-devel-0.3.1-2.1.i586.rpm  trousers-static-0.3.1-2.1.i586.rpm
+52 INSTALL
+   clutter-box2d-0.10_20090803-5.1.i586.rpm  clutter-box2d-devel-0.10_20090803-5.1.i586.rpm
+   UPGRADE
+   clutter-gst-1.0.0-4.1.i586.rpm clutter-gst-devel-1.0.0-4.1.i586.rpm clutter-gst-tests-1.0.0-4.1.i586.rpm
+53 UPGRADE
+   libgcrypt-1.4.5-1.1.i586.rpm  libgcrypt-devel-1.4.5-1.1.i586.rpm
+54 UPGRADE
+   gtk-doc-1.14-1.1.noarch.rpm
+   居然会导致gnome-key-ring编不过
+55 UPGRADE
+   gstreamer-0.10.28-2.1.i586.rpm  gstreamer-devel-0.10.28-2.1.i586.rpm
+56 UPGRADE
+   gnome-keyring-2.30.0-3.2.i586.rpm        gnome-keyring-devel-2.30.0-3.2.i586.rpm  gnome-keyring-pam-2.30.0-3.2.i586.rpm
+   libgnome-keyring-2.30.0-2.1.i586.rpm        libgnome-keyring-devel-2.30.0-2.1.i586.rpm
+57 UPGRADE
+   libva-1.0.1-3.1.i586.rpm  libva-devel-1.0.1-3.1.i586.rpm
+58 UPGRADE 
+   libsoup-2.30.0-1.1.i586.rpm  libsoup-devel-2.30.0-1.1.i586.rpm
+59 UPGRADE
+   xcb-proto-1.6-4.1.i586.rpm
+60 INSTALL
+   libchamplain-0.4.5-3.1.i586.rpm            libchamplain-devel-0.4.5-3.1.i586.rpm      
+   libchamplain-gtk-0.4.5-3.1.i586.rpm        libchamplain-gtk-devel-0.4.5-3.1.i586.rpm  
+61 INSTALL
+   openjpeg-1.3-11.1.i586.rpm        openjpeg-devel-1.3-11.1.i586.rpm  openjpeg-libs-1.3-11.1.i586.rpm
+62 UPGRADE
+   poppler-0.12.1-3.1.i586.rpm        poppler-glib-0.12.1-3.1.i586.rpm        poppler-utils-0.12.1-3.1.i586.rpm
+   poppler-devel-0.12.1-3.1.i586.rpm  poppler-glib-devel-0.12.1-3.1.i586.rpm
+63 INSTALL
+   contextkit-0.5.8-2.1.i586.rpm        contextkit-devel-0.5.8-2.1.i586.rpm  
+64 UPGRADE
+   xorg-x11-util-macros-1.5.0-2.1.i586.rpm
+65 INSTALL
+   aria2-1.9.3-5.1.i586.rpm
+66 INSTALL
+   augeas-0.7.0-1.1.i586.rpm  augeas-devel-0.7.0-1.1.i586.rpm  augeas-libs-0.7.0-1.1.i586.rpm
+67 UPGRADE
+   tcl-8.5.8-6.1.i586.rpm        tcl-devel-8.5.8-6.1.i586.rpm
+68 INSTALL
+   libqttracker-6.5.0-3.1.i586.rpm  libqttracker-devel-6.5.0-3.1.i586.rpm
+69 INSTALL
+   libao-0.8.8-9.1.i586.rpm  libao-devel-0.8.8-9.1.i586.rpm
+70 UPGRADE
+   pulseaudio-0.9.21-15.1.i586.rpm  pulseaudio-devel-0.9.21-15.1.i586.rpm  pulseaudio-module-x11-0.9.21-15.1.i586.rpm
+   dependency failed:
+   rtkit
+
+71 UPGRADE
+   udev-150-17.1.i586.rpm 	udev-rules-netbook-0.1-1.1.noarch.rpm
+   ConsoleKit-0.4.1-8.1.i586.rpm        ConsoleKit-devel-0.4.1-8.1.i586.rpm  ConsoleKit-libs-0.4.1-8.1.i586.rpm   ConsoleKit-x11-0.4.1-8.1.i586.rpm
+   libudev-150-17.1.i586.rpm        libudev-devel-150-17.1.i586.rpm 
+   libgudev1-150-17.1.i586.rpm        libgudev1-devel-150-17.1.i586.rpm 
+72 UPGRADE
+   gupnp-igd-0.1.5-5.1.i586.rpm gupnp-igd-devel-0.1.5-5.1.i586.rpm
+73 UPGRADE
+   libnice-0.0.10-2.2.i586.rpm        libnice-devel-0.0.10-2.2.i586.rpm 
+74 UPGRADE
+   libfprint-0.1.0-13.1.i586.rpm  libfprint-devel-0.1.0-13.1.i586.rpm
+75 INSTALL
+   libatasmart-0.15-3.1.i586.rpm  libatasmart-devel-0.15-3.1.i586.rpm 
+76 UPGRADE
+   intltool-0.41.0-6.1.i586.rpm
+77 INSTALL
+   automake14-1.4p6-21.1.noarch.rpm  automake17-1.7.9-20.1.noarch.rpm 
+78 INSTALL
+   orc-0.4.5-1.1.i586.rpm           orc-compiler-0.4.5-1.1.i586.rpm  orc-devel-0.4.5-1.1.i586.rpm 
+79 INSTALL
+   pyclutter-1.0.2-1.1.i586.rpm 	pyclutter-devel-1.0.2-1.1.i586.rpm
+80 UPGRADE
+   libdrm-2.4.20-1.1.i586.rpm  libdrm-devel-2.4.20-1.1.i586.rpm
+   xorg-x11-font-utils-7.5-7.1.i586.rpm
+   libxcb-1.5-3.1.i586.rpm libxcb-devel-1.5-3.1.i586.rpm
+   
+81 UPGRADE
+   gnome-doc-utils-0.20.0-1.1.i586.rpm              gnome-doc-utils-stylesheets-0.20.0-1.1.i586.rpm
+82 UPGRADE
+   xorg-x11-proto-dri2proto-2.3-1.1.i586.rpm
+83 INSTALL 
+   libedit-3.0_snap20090923-3.1.i586.rpm  libedit-devel-3.0_snap20090923-3.1.i586.rpm
+84 UPGRADE
+   mesa-dri-drivers-devel-7.8.1-6.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+85 INSTALL
+   ptlib-2.6.5-4.1.i586.rpm  ptlib-devel-2.6.5-4.1.i586.rpm
+86 UPGRADE for xorg-x11-server-1.8.0-5.1.src.rpm
+   xorg-x11-proto-renderproto-0.11-3.1.i586.rpm
+   xorg-x11-proto-xextproto-7.1.1-3.1.i586.rpm
+   mesa-dri-swrast-driver-7.8.1-6.1.i586.rpm
+   mesa-libGL-7.8.1-6.1.i586.rpm         mesa-libGL-devel-7.8.1-6.1.i586.rpm   
+	mesa-libGLU-7.8.1-6.1.i586.rpm        mesa-libGLU-devel-7.8.1-6.1.i586.rpm
+   libX11-1.3.3-2.2.i586.rpm  libX11-devel-1.3.3-2.2.i586.rpm
+   xorg-x11-proto-scrnsaverproto-1.2.0-3.1.i586.rpm 
+	xorg-x11-proto-xf86dgaproto-2.1-3.1.i586.rpm
+   libXext-1.1.1-3.1.i586.rpm  libXext-devel-1.1.1-3.1.i586.rpm
+	xorg-x11-proto-xf86vidmodeproto-2.3-3.1.i586.rpm
+
+   INSTALL
+   xorg-x11-proto-fixesproto-4.1.1-3.1.i586.rpm
+87 UPGRADE
+   openssl-0.9.8m-1.1.i586.rpm        openssl-devel-0.9.8m-1.1.i586.rpm  openssl-perl-0.9.8m-1.1.i586.rpm 
+88 UPGRADE
+   gst-plugins-base-0.10.28-5.1.i586.rpm gst-plugins-base-devel-0.10.28-5.1.i586.rpm   
+89 INSTALL
+   messagingframework-2010W10-1.1.i586.rpm  messagingframework-devel-2010W10-1.1.i586.rpm
+90 INSTALL
+	adns-1.4-10.1.i586.rpm  adns-devel-1.4-10.1.i586.rpm  adns-progs-1.4-10.1.i586.rpm
+91 UPGRADE
+   help2man-1.37.1-2.1.noarch.rpm
+92 INSTALL
+   phidgetlinux-2.1.6-1.2.i586.rpm  phidgetlinux-devel-2.1.6-1.2.i586.rpm
+93 UPGRADE
+	vala-0.8.0-1.2.i586.rpm vala-devel-0.8.0-1.2.i586.rpm
+94 UPGRADE
+	libxml2-2.7.6-9.1.i586.rpm  libxml2-devel-2.7.6-9.1.i586.rpm  libxml2-python-build-2.7.6-9.1.i586.rpm
+95 INSTALL
+	libsatsolver-devel-0.14.16-1.1.i586.rpm satsolver-tools-0.14.16-1.1.i586.rpm 
+96 UPGRADE
+	WebKit-gtk-1.1.90-2.2.i586.rpm  WebKit-gtk-devel-1.1.90-2.2.i586.rpm
+97 UPGRADE
+	unique-1.1.2-4.1.i586.rpm  unique-devel-1.1.2-4.1.i586.rpm
+98 INSTALL
+	gnupg-1.4.10-4.1.i586.rpm   
+	libzypp-6.31.0-4.1.i586.rpm        libzypp-devel-6.31.0-4.1.i586.rpm  
+99 UPGRADE
+	farsight2-0.0.16-2.1.i586.rpm        
+	farsight2-python-0.0.16-2.1.i586.rpm
+	farsight2-devel-0.0.16-2.1.i586.rpm
+00 UPGRADE
+	PackageKit-0.6.3-12.1.i586.rpm                    PackageKit-glib-devel-0.6.3-12.1.i586.rpm
+	PackageKit-backend-devel-0.6.3-12.1.i586.rpm      PackageKit-gstreamer-plugin-0.6.3-12.1.i586.rpm
+	PackageKit-browser-plugin-0.6.3-12.1.i586.rpm     PackageKit-gtk-module-0.6.3-12.1.i586.rpm
+	PackageKit-command-not-found-0.6.3-12.1.i586.rpm  PackageKit-qt-0.6.3-12.1.i586.rpm
+	PackageKit-cron-0.6.3-12.1.i586.rpm               PackageKit-qt-devel-0.6.3-12.1.i586.rpm
+	PackageKit-debug-install-0.6.3-12.1.i586.rpm      PackageKit-yum-0.6.3-12.1.i586.rpm
+	PackageKit-device-rebind-0.6.3-12.1.i586.rpm      PackageKit-yum-plugin-0.6.3-12.1.i586.rpm
+	PackageKit-docs-0.6.3-12.1.i586.rpm               PackageKit-zypp-0.6.3-12.1.i586.rpm
+	PackageKit-glib-0.6.3-12.1.i586.rpm  
