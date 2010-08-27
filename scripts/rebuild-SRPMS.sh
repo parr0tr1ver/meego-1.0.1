@@ -37,8 +37,10 @@ for para in "$*"; do
 	#read
 
 
+	sum=`ls *.src.rpm | wc -l`
+	count=1
 	for srpm in `ls *.src.rpm`; do
-		echo "building $srpm " >> $log_file
+		echo "building $srpm $count/$sum" >> $log_file
 
 		rpmbuild --target i586 --clean --rebuild $srpm >> $log_file 2>&1 
 		if [ $? -eq 0 ]; then
@@ -51,6 +53,7 @@ for para in "$*"; do
 		echo '--------------------------------------------------------' >> $log_file
 		echo >> $log_file
 
+		let count=count+1
 	done
 
 	popd
