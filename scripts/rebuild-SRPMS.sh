@@ -44,7 +44,7 @@ for para in "$*"; do
 
 		rpmbuild --target i586 --clean --rebuild $srpm >> $log_file 2>&1 
 		if [ $? -eq 0 ]; then
-			mv $srpm $result_dir
+			mv $srpm $result_dir/
 			echo "build $srpm successfully!" >> $log_file
 		else
 			echo "build $srpm failed! :(" >> $log_file
