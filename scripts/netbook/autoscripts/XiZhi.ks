@@ -39,6 +39,7 @@ repo --name="Red Flag Netbook Update" --baseurl=http://172.16.82.249/netbookyum/
 # >> end << 
 
 # kde 
+# >> begin <<
 kdebase
 kdebase-libs
 kdebase-runtime
@@ -71,6 +72,7 @@ fancytasks
 SabreTiger
 kickoff
 kickoff-scripts
+# >> end << 
 
 
 # redflag installer
@@ -107,6 +109,14 @@ cooliris
 
 firstconfig
 rfthememanager
+
+# compilers and develop tools
+# >> begin <<
+kernel-headers
+make
+gcc
+rpm-build
+# >> end <<
 
 # input method
 ibus
