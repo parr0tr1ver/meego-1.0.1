@@ -116,6 +116,7 @@ kernel-headers
 make
 gcc
 rpm-build
+diffutils
 # >> end <<
 
 # input method
