@@ -32,7 +32,7 @@ for para in "$*"; do
 	mkdir $result_dir
 
 	tdir=$(basename `pwd`)
-	log_file=$tdir\_$build_log.$build_time
+	log_file=log_$tdir\_$build_log.$build_time
 	echo log file is $log_file
 	#read
 
