@@ -127,8 +127,12 @@ vague_inst () {
 #
 # Main function
 
-WORKDIR=`dirname $0`
-cd $WORKDIR
+#WORKDIR=`dirname $0`
+#cd $WORKDIR
+echo "Usage: $0 LOCALPOOL VIRBUILDDIR\n"  
+echo "Please DO NOT put LOCALPOOL under VIRBUILDDIR"
+echo "Enter will continue, or Ctrl+C quit"
+read
 
 if [ -z "$2" ]; then
     echo "Usage: $0 LOCALPOOL VIRBUILDDIR\n"  
@@ -149,7 +153,9 @@ fi
 # RPMS: Pool of RPMs
 # ROOT: Topdir of virbuild
 RPMS=$1
-ROOT=$2
+pushd $2
+ROOT=`pwd`
+popd
 
 umount $ROOT/proc >/dev/null 2>&1
 
