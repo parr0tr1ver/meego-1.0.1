@@ -39,6 +39,7 @@ for para in "$*"; do
 
 	sum=`ls *.src.rpm | wc -l`
 	count=1
+	failed=0
 	for srpm in `ls *.src.rpm`; do
 		echo "building $srpm $count/$sum" >> $log_file
 
@@ -48,6 +49,7 @@ for para in "$*"; do
 			echo "build $srpm successfully!" >> $log_file
 		else
 			echo "build $srpm failed! :(" >> $log_file
+			let failed=failed+1
 		fi
 
 		echo '--------------------------------------------------------' >> $log_file
@@ -55,6 +57,8 @@ for para in "$*"; do
 
 		let count=count+1
 	done
+
+	echo "Build finished! Left $failed/$sum rpm failed!" >> $log_file
 
 	popd
 done
