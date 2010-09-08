@@ -25,6 +25,11 @@ fi
 
 for para in "$*"; do
 	echo $para
+	if [ ! -d $para ]; then
+		echo "directory $para does NOT exist!"
+		continue
+	fi
+
 	pushd $para
 
 	build_time=`date +%Y%m%d%H%M`
