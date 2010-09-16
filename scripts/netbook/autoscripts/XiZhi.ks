@@ -66,7 +66,6 @@ bash
 bluez
 bluez-libs
 #bognor-regis
-bootchart
 btrfs-progs
 bzip2
 bzip2-libs
@@ -149,7 +148,6 @@ file-libs
 #file-roller
 filesystem
 findutils
-firefox
 #firstboot
 flac
 #flash-plugin
@@ -228,7 +226,6 @@ gnutls
 gpgme
 #gpg-pubkey
 grep
-grub
 grubby
 #gssdp
 gst-plugins-bad-free
@@ -257,15 +254,10 @@ info
 iproute
 iputils
 iso-codes
-#jakarta-commons-cli
-#jakarta-commons-lang
-#jakarta-commons-logging
+isomd5sum
 #jana
 jasper
 jasper-libs
-#java-1.5.0-gcj
-#java_cup
-#jpackage-utils
 json-glib
 kbd
 kernel-devel
@@ -308,7 +300,6 @@ liberation-serif-fonts
 libffi
 libfontenc
 libgcc
-#libgcj
 libgcrypt
 #libgee
 #libglade2
@@ -434,6 +425,7 @@ mkinitrd
 #moblin-cursor-theme
 #moblin-gtk-engine
 #moblin-icon-theme
+moblin-live
 #moblin-menus
 #moblin-panel-applications
 #moblin-panel-datetime
@@ -538,8 +530,9 @@ pygobject2
 pygpgme
 #pygtk2
 #pygtk2-libglade
+#pykickstart
 #pyOpenSSL
-pyparted
+#pyparted
 python
 python-decorator
 python-iniparse
@@ -572,7 +565,7 @@ scim
 scim-bridge
 scim-bridge-clutter
 scim-bridge-gtk
-scim-chewing
+#scim-chewing
 scim-hangul
 scim-pinyin
 scim-skk
@@ -589,11 +582,11 @@ setup
 sgml-common
 shadow-utils
 #shared-mime-info
-#sinjdoc
-skkdic
+#skkdic
 sound-theme-freedesktop
 speex
 sqlite
+squashfs-tools
 sreadahead
 startup-notification
 sudo
@@ -713,7 +706,6 @@ yum
 yum-metadata-parser
 yum-utils
 #zenity
-zip
 zlib
 #zypper
 # >> end << 
@@ -721,15 +713,13 @@ zlib
 # kde 
 # >> begin <<
 kdebase
-kdebase-libs
+#kdebase-libs
 kdebase-runtime
-kdebase-runtime-libs
+#kdebase-runtime-libs
 kdebase-workspace
-kdebase-workspace-libs
+#kdebase-workspace-libs
 kdebase-workspace-wallpapers
 #kdebindings
-kde-filesystem
-kde-filesystem
 kde-filesystem
 kdelibs
 kde-l10n-Chinese
@@ -743,7 +733,7 @@ kdenetwork
 kdepim
 kdeplasma-addons
 kdeutils
-kdm
+#kdm
 plasma-applet-miniquicklaunch
 plasma-applet-minitasks
 plasma-applet-panelspacer
@@ -764,20 +754,24 @@ wqy-zenhei-fonts
 rfInmini
 
 # system libraries
+fastinit-postscripts
+grub
 hal
 hal-info
 hal-libs
+moblin-live
 polkit-qt
 #polkit-kde??
 
 # applications
-#amarok
-xine-lib-extras-freeworld
-thunderbird
+amarok
+firefox
 hunspell-en
+thunderbird
+xine-lib-extras-freeworld
 
 gimp
-#guvcview
+guvcview
 stardict
 stardict-dic-zh_CN
 stardict-dic-zh_TW
@@ -927,7 +921,7 @@ cat > /usr/share/apps/rfpackages_conf/rfpackages.locale << EOF
 #
 # del or add some packages according to locale
 locale=en_US.UTF-8
-del_packages=linuxqq,firefox-en_US-resources,kickoff-scripts,
+del_packages=linuxqq,firefox-en_US-resources,kickoff-scripts,moblin-live
 
 EOF
 # add by pwp end
